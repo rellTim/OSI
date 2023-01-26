@@ -8,7 +8,10 @@ public class Serves {
         System.out.println("servers started");
         try (var serverSocket = new ServerSocket(PORT)) {
             while (true) {
-                try (var clientSocket = serverSocket.accept(); var out = new PrintWriter(clientSocket.getOutputStream(), true); var in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
+                try (var clientSocket = serverSocket.accept();
+                     var out = new PrintWriter(clientSocket.getOutputStream(), true);
+                     var in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream())))
+                {
                     System.out.println("New connection accepted. Port: " + clientSocket.getPort());
                     var name = in.readLine();
                     out.println("Hi " + name + " your port is " + clientSocket.getPort());

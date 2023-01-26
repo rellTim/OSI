@@ -10,7 +10,7 @@ public class Client {
         try (var socket = new Socket(HOST, PORT);
              var out = new PrintWriter(socket.getOutputStream(), true);
              var in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-            out.println(out);
+            out.println("Timur");
             String resp = in.readLine();
             System.out.println(resp);
         } catch (IOException e) {
